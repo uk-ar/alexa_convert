@@ -2,15 +2,15 @@
   "skillManifest": {
     "publishingInformation": {
       "locales": {
-        "en-US": {
-          "summary": "Sample Short Description",
+        "ja-JP": {
+          "summary": "西暦と年号、干支を変換します",
           "examplePhrases": [
             "Alexa open hello world",
             "Alexa tell hello world I am Jeff",
             "Alexa tell hello world my name is Peter"
           ],
-          "name": "Biblio",
-          "description": "Sample Full Description"
+          "name": "年号変換",
+          "description": "西暦と年号、干支を変換します"
         }
       },
       "isAvailableWorldwide": true,
