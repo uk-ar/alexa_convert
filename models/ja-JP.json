@@ -15,21 +15,6 @@
                     ]
                 },
                 {
-                    "name": "FOUR_YEAR",
-                    "values": [
-                        {"id": null,"name": {"value": "1001","synonyms": []}},
-                        {"id": null,"name": {"value": "1902","synonyms": []}},
-                        {"id": null,"name": {"value": "1953","synonyms": []}},
-                        {"id": null,"name": {"value": "1984","synonyms": []}},
-                        {"id": null,"name": {"value": "1995","synonyms": []}},
-                        {"id": null,"name": {"value": "2006","synonyms": []}},
-                        {"id": null,"name": {"value": "2016","synonyms": []}},
-                        {"id": null,"name": {"value": "2027","synonyms": []}},
-                        {"id": null,"name": {"value": "2038","synonyms": []}},
-                        {"id": null,"name": {"value": "2109","synonyms": []}}
-                    ]
-                },
-                {
                     "name": "TWO_YEAR",
                     "values": [
                         {"id": "10","name": {"value": "10","synonyms": [ "じゅう"]}},
@@ -162,10 +147,6 @@
                             "type": "ERA_NAME"
                         },
                         {
-                            "name": "FourYear",
-                            "type": "FOUR_YEAR"
-                        },
-                        {
                             "name": "TwoYear",
                             "type": "TWO_YEAR"
                         }
@@ -181,32 +162,24 @@
                         "{Date} は {ToEra} で言うと何",
                         "{Date} は {ToEra} で言うと何年",
                         "{Date} を {ToEra} に変換",
-                        "{FourYear} 年は {ToEra} 何",
-                        "{FourYear} 年は {ToEra} 何年",
-                        "{FourYear} 年は {ToEra} で言うと",
-                        "{FourYear} 年は {ToEra} で言うと何",
-                        "{FourYear} 年は {ToEra} で言うと何年",
-                        "{FourYear} 年を {ToEra} に変換",
-                        "{FourYear} 年は",
-                        "{FourYear} 年は 何",
-                        "{FourYear} 年は 何年",
-                        "{FourYear} 年を 変換",
-                        "{FromEra} {FourYear} 年は {ToEra} 何",
-                        "{FromEra} {FourYear} 年は {ToEra} 何年",
-                        "{FromEra} {FourYear} 年は {ToEra} で言うと",
-                        "{FromEra} {FourYear} 年は {ToEra} で言うと何",
-                        "{FromEra} {FourYear} 年は {ToEra} で言うと何年",
-                        "{FromEra} {FourYear} 年は {ToEra} に変換",
-                        "{FromEra} {FourYear} 年は",
-                        "{FromEra} {FourYear} 年は 何",
-                        "{FromEra} {FourYear} 年は 何年",
-                        "{FromEra} {FourYear} 年を 変換",
+                        "{FromEra} {Date} 年は {ToEra} 何",
+                        "{FromEra} {Date} 年は {ToEra} 何年",
+                        "{FromEra} {Date} 年は {ToEra} で言うと",
+                        "{FromEra} {Date} 年は {ToEra} で言うと何",
+                        "{FromEra} {Date} 年は {ToEra} で言うと何年",
+                        "{FromEra} {Date} 年は {ToEra} に変換",
+                        "{FromEra} {Date} 年",
+                        "{FromEra} {Date} 年は",
+                        "{FromEra} {Date} 年は 何",
+                        "{FromEra} {Date} 年は 何年",
+                        "{FromEra} {Date} 年を 変換",
                         "{FromEra} {TwoYear} 年は {ToEra} 何",
                         "{FromEra} {TwoYear} 年は {ToEra} 何年",
                         "{FromEra} {TwoYear} 年は {ToEra} で言うと",
                         "{FromEra} {TwoYear} 年は {ToEra} で言うと何",
                         "{FromEra} {TwoYear} 年は {ToEra} で言うと何年",
                         "{FromEra} {TwoYear} 年は {ToEra} に変換",
+                        "{FromEra} {TwoYear} 年",
                         "{FromEra} {TwoYear} 年は",
                         "{FromEra} {TwoYear} 年は 何",
                         "{FromEra} {TwoYear} 年は 何年",

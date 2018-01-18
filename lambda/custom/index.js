@@ -34,28 +34,36 @@ var handlers = {
         const date = this.event.request.intent.slots.Date.value;
         const toEra = this.event.request.intent.slots.ToEra.value;
         const fromEra = this.event.request.intent.slots.FromEra.value;
-        const fourYear = this.event.request.intent.slots.FourYear.value;
         const twoYear = this.event.request.intent.slots.TwoYear.resolutions && this.event.request.intent.slots.TwoYear.resolutions.resolutionsPerAuthority[0].values[0].value.id
         this.event.request.intent.slots.TwoYear.value;
-        const fromYear = fourYear || twoYear
+        const fromYear = twoYear
         //"{AnnoDomini} 年は {EraName} 何年",
         //"1981 年は 昭和 何年",
         console.log(this.event.request.intent.slots.Date,
-                    this.event.request.intent.slots.Date.resolutions);
+                    this.event.request.intent.slots.Date.resolutions,
+                    fromEra,twoYear);
         var answer = "年号変換できません"
+        const EraStart = {
+            "明治":1867,
+            "大正":1911,
+            "昭和":1925,
+            "平成":1988
+        }
+        //
         if(date){//&& (!toEra || toEra==="和暦")
             //年号変換で今日は何年
             //年号変換で今日は和暦何年
             //年号変換で今日は昭和何年 not support yet
-            console.log(moment(date.slice(0,4)).format("YYYY"))
-            answer = `${date} は ${koyomi.format(date.slice(0,4),'GGN')} 年です`
-        } else if(fourYear) {
-            //年号変換で1981 年は 何年
-            //年号変換で1981 年は 昭和 何年
-            answer = `西暦 ${fourYear} は ${koyomi.format(fourYear,'GGN')} 年です`
+            //年号変換で1981年は何年 not support?
+            //年号変換で1981年は昭和何年 not support?
+            //年号変換で千九百八十一年は何年
+            console.log(date.slice(0,4))
+            const year = date.slice(0,4)
+            answer = `西暦 ${year} 年は ${koyomi.format(year,'GGN')} 年です`
         } else if(twoYear && fromEra) {
-            //昭和 56年は 何年
-            answer = `${fromEra} ${twoYear} は 西暦 ${koyomi.format(fromEra+twoYear+"年",'YYYY')} 年です`
+            //年号変換で昭和56年は 何年
+            //年号変換で昭和四十七年は何年
+            answer = `${fromEra} ${twoYear} 年は 西暦 ${koyomi.format(fromEra+twoYear+"年",'YYYY')} 年です`
         }
         //const answer = `${fromEra} ${fromYear} は ${toEra} 10年です`
         this.response.speak(answer)
