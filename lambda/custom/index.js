@@ -7,9 +7,12 @@ var moment = require("moment");
 // TODO:dev
 // https://ygoto3.com/posts/alexa-skill-development-efficiency/
 
+const APP_ID = "amzn1.ask.skill.1dbf4219-77ea-4a84-903c-a582dddc0ecc";
+
 exports.handler = function(event, context) {
     var alexa = Alexa.handler(event, context);
     alexa.registerHandlers(handlers);
+    alexa.appId = APP_ID;
     alexa.execute();
 };
 
