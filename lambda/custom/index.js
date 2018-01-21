@@ -38,8 +38,6 @@ var handlers = {
         const toEra = this.event.request.intent.slots.ToEra.value;
         const fromEra = this.event.request.intent.slots.FromEra.value;
         const twoYear = this.event.request.intent.slots.TwoYear.resolutions && this.event.request.intent.slots.TwoYear.resolutions.resolutionsPerAuthority[0].values[0].value.id
-        this.event.request.intent.slots.TwoYear.value;
-        const fromYear = twoYear
         //"{AnnoDomini} 年は {EraName} 何年",
         //"1981 年は 昭和 何年",
         console.log(this.event.request.intent.slots.Date,
@@ -77,7 +75,7 @@ var handlers = {
         console.log('セッションが以下の理由で中断されました: ' + this.event.request.reason);
     },
     'AMAZON.StopIntent' : function() {
-        this.response.speak('ありがとうございました');
+        this.response.speak('ありがとうございました。またのご利用をお待ちしてます。');
         this.emit(':responseReady');
     },
     'AMAZON.HelpIntent' : function() {
@@ -85,7 +83,7 @@ var handlers = {
         this.emit(':responseReady');
     },
     'AMAZON.CancelIntent' : function() {
-        this.response.speak('ありがとうございました');
+        this.response.speak('ありがとうございました。');
         this.emit(':responseReady');
     },
     'Unhandled' : function() {
