@@ -11,7 +11,7 @@
     "moment": "^2.20.1"
   },
   "devDependencies": {
-    "alexa-conversation": "^0.2.0",
+    "alexa-conversation": "uk-ar/alexa-conversation",
     "mocha": "^5.0.0"
   }
 }
