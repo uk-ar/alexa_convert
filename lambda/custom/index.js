@@ -28,7 +28,10 @@ var handlers = {
     'SayHello': function () {
         //起動のみの場合は使い方
         const WELCOME_MESSAGE = "年号変換へようこそ。"
-        this.response.speak(WELCOME_MESSAGE+HELP_MESSAGE)
+        const d = new Date();
+        const year = d.toISOString().slice(0,4)
+        const year_message = `今年は西暦 ${year} 年、${koyomi.format(year,'GGN')} 年です。`
+        this.response.speak(WELCOME_MESSAGE+year_message+HELP_MESSAGE)
             //.cardRenderer('hello world', 'hello world');
         this.emit(':responseReady');
     },
@@ -69,10 +72,19 @@ var handlers = {
         //const answer = `${fromEra} ${fromYear} は ${toEra} 10年です`
         this.response.speak(answer)
             .cardRenderer('年号変換', answer);
+        this.attributes["answer"] = answer;
         this.emit(':responseReady');
     },
     'SessionEndedRequest' : function() {
         console.log('セッションが以下の理由で中断されました: ' + this.event.request.reason);
+    },
+    'AMAZON.RepeatIntent' : function() {
+        if(this.attributes["answer"]){
+            this.response.speak(this.attributes["answer"]);
+            this.emit(':responseReady');
+        }else{
+            this.emit('AMAZON.HelpIntent');
+        }
     },
     'AMAZON.StopIntent' : function() {
         this.response.speak('ありがとうございました。またのご利用をお待ちしてます。');
