@@ -16,7 +16,7 @@ exports.handler = function(event, context) {
     alexa.execute();
 };
 
-const HELP_MESSAGE = "例えば「年号変換で今日は何年？」「年号変換で1981年は何年？」「年号変換で昭和56年は何年？」と言う風に聞いてください。"
+const HELP_MESSAGE = "例えば「年号変換で来年は何年？」「年号変換で1981年は？」「年号変換で昭和56年？」と言う風に聞いてください。"
 
 var handlers = {
     'LaunchRequest': function () {
@@ -40,7 +40,7 @@ var handlers = {
         const date = this.event.request.intent.slots.Date.value;
         const toEra = this.event.request.intent.slots.ToEra.value;
         const fromEra = this.event.request.intent.slots.FromEra.value;
-        const twoYear = this.event.request.intent.slots.TwoYear.resolutions && this.event.request.intent.slots.TwoYear.resolutions.resolutionsPerAuthority[0].values[0].value.id
+        const twoYear = parseInt(this.event.request.intent.slots.TwoYear.value, 10) || this.event.request.intent.slots.TwoYear.resolutions && this.event.request.intent.slots.TwoYear.resolutions.resolutionsPerAuthority[0].values[0].value.id
         //"{AnnoDomini} 年は {EraName} 何年",
         //"1981 年は 昭和 何年",
         console.log(this.event.request.intent.slots.Date,

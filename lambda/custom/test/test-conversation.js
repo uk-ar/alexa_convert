@@ -32,8 +32,15 @@ conversation({...opts,name:"convert date from to jp"})
   .end()
 
 //convert from jp to ad
-conversation({...opts,name:"convert from jp to ad"})
-  .userSays('SayHelloName',{Date: '',ToEra:'',FromEra:'昭和',TwoYear:{value:'56',resolutions:{resolutionsPerAuthority:[{values:[{value:{id:"56"}}]}]}}})
+conversation({...opts,name:"convert from jp digit to ad"})
+  .userSays('SayHelloName',{Date: '',ToEra:'',FromEra:'昭和',TwoYear:{value:'56'}})
+  .plainResponse
+  .shouldContain('西暦 1981 年')
+  .end()
+
+//convert from jp to ad
+conversation({...opts,name:"convert from jp kanji to ad"})
+  .userSays('SayHelloName',{Date: '',ToEra:'',FromEra:'昭和',TwoYear:{value:'五十六',resolutions:{resolutionsPerAuthority:[{values:[{value:{id:"56"}}]}]}}})
   .plainResponse
   .shouldContain('西暦 1981 年')
   .end()
