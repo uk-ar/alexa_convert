@@ -1,0 +1,14 @@
+{
+  "name": "skill-sample-nodejs-hello-world",
+  "version": "1.0.0",
+  "description": "Hello world sample skill",
+  "scripts": {
+    "test": "node_modules/.bin/mocha lambda/custom/test/test-conversation.js",
+    "deploy": "node_modules/.bin/ask deploy"
+  },
+  "devDependencies": {
+    "alexa-conversation": "uk-ar/alexa-conversation",
+    "ask-cli": "^1.0.0-beta.9",
+    "mocha": "^5.0.0"
+  }
+}

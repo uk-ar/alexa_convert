@@ -27,7 +27,7 @@ jobs:
           - v1-dependencies-
 
       - run:
-         command: npm install
+         command: npm prune --production
          working_directory: ~/repo/lambda/custom
 
       - save_cache:
@@ -35,7 +35,24 @@ jobs:
             - lambda/custom/node_modules
           key: v1-dependencies-{{ checksum "lambda/custom/package.json" }}
 
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v2-dependencies-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v2-dependencies-
+
+      - run:
+         command: yarn install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v2-dependencies-{{ checksum "package.json" }}
+
       # run tests!
       - run:
-         command: npm test
-         working_directory: ~/repo/lambda/custom
+         command: yarn test
+
+      - deploy:
+         command: yarn deploy
