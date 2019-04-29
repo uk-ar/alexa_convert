@@ -159,6 +159,7 @@
                     "samples":[
                         "{Date} は",
                         "{Date} は 何",
+                        "{Date} 年",
                         "{Date} は 何年",
                         "{Date} を 変換",
                         "{Date} は {ToEra} 何",

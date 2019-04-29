@@ -16,7 +16,7 @@ exports.handler = function(event, context) {
     alexa.execute();
 };
 
-const HELP_MESSAGE = "例えば「年号変換で来年は何年？」「年号変換で1981年は？」「年号変換で昭和56年？」と言う風に聞いてください。"
+const HELP_MESSAGE = "例えば「年号変換で来年は何年？」「年号変換で1981年は？」「年号変換で昭和56年？」のように聞いてください。"
 
 var handlers = {
     'LaunchRequest': function () {
@@ -29,18 +29,19 @@ var handlers = {
         //起動のみの場合は使い方
         const WELCOME_MESSAGE = "年号変換へようこそ。"
         const d = new Date();
-        const year = d.toISOString().slice(0,4)
-        const year_message = `今年は西暦 ${year} 年、${koyomi.format(year,'GGN')} 年です。`
+        const year = d.toISOString().slice(0,10)
+        const year_message = `今日は ${year} 、${koyomi.format(year,'GGN')} 年です。`
         this.response.speak(WELCOME_MESSAGE+year_message+HELP_MESSAGE)
             //.cardRenderer('hello world', 'hello world');
         this.emit(':responseReady');
     },
     'SayHelloName': function () {
         console.log(this.event.request.intent.slots);
-        const date = this.event.request.intent.slots.Date.value;
+        let date = this.event.request.intent.slots.Date.value;
         const toEra = this.event.request.intent.slots.ToEra.value;
         const fromEra = this.event.request.intent.slots.FromEra.value;
-        const twoYear = parseInt(this.event.request.intent.slots.TwoYear.value, 10) || this.event.request.intent.slots.TwoYear.resolutions && this.event.request.intent.slots.TwoYear.resolutions.resolutionsPerAuthority[0].values[0].value.id
+      //const twoYear = parseInt(this.event.request.intent.slots.TwoYear.value, 10) || this.event.request.intent.slots.TwoYear.resolutions && this.event.request.intent.slots.TwoYear.resolutions.resolutionsPerAuthority[0].values[0].value.id
+      const twoYear = this.event.request.intent.slots.TwoYear.value;//, 10) || this.event.request.intent.slots.TwoYear.resolutions && this.event.request.intent.slots.TwoYear.resolutions.resolutionsPerAuthority[0].values[0].value.id
         //"{AnnoDomini} 年は {EraName} 何年",
         //"1981 年は 昭和 何年",
         console.log(this.event.request.intent.slots.Date,
@@ -51,24 +52,45 @@ var handlers = {
             "明治":1867,
             "大正":1911,
             "昭和":1925,
-            "平成":1988
+            "平成":1988,
+            "令和":2019
         }
-        //
-        if(date){//&& (!toEra || toEra==="和暦")
+      //
+      if(date && date.length == 10 && date.endsWith("-XX-XX")){
+        //年号変換で千九百八十一年は何年
+        date = date.slice(0,4)
+      }
+
+      if(date && date.length == 4){//&& (!toEra || toEra==="和暦")
             //年号変換で今日は何年
             //年号変換で今日は和暦何年
             //年号変換で今日は昭和何年 not support yet
-            //年号変換で1981年は何年 not support?
+            //年号変換で1981年は何年 not support on simulator?
             //年号変換で1981年は昭和何年 not support?
             //年号変換で千九百八十一年は何年
+            //年号変換で千九百八十一年は昭和何年
             console.log(date.slice(0,4))
             const year = date.slice(0,4)
-            answer = `西暦 ${year} 年は ${koyomi.format(year,'GGN')} 年です`
-        } else if(twoYear && fromEra) {
+            answer = `西暦 ${date} 年は ${koyomi.format(year,'GGN')} 年です`
+      }else if(date && date.length == 10){//&& (!toEra || toEra==="和暦")
+            //年号変換で今日は何年
+            //年号変換で今日は和暦何年
+            //年号変換で今日は昭和何年 not support yet
+            //年号変換で1981年は何年 not support on simulator?
+            //年号変換で1981年は昭和何年 not support?
+            //年号変換で千九百八十一年は何年
+            //年号変換で千九百八十一年は昭和何年
+            console.log(date.slice(0,10))
+            const year = date.slice(0,10)
+            answer = `${date} は ${koyomi.format(year,'GGN')} 年です`
+      }
+      else if(twoYear && fromEra) {
             //年号変換で昭和56年は 何年
             //年号変換で昭和四十七年は何年
             answer = `${fromEra} ${twoYear} 年は 西暦 ${koyomi.format(fromEra+twoYear+"年",'YYYY')} 年です`
-        }
+      }else if(twoYear && twoYear.length==4) {
+        answer = `西暦 ${twoYear} 年は ${koyomi.format(twoYear,'GGN')} 年です`
+      }
         //const answer = `${fromEra} ${fromYear} は ${toEra} 10年です`
         this.response.speak(answer)
             .cardRenderer('年号変換', answer);

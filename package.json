@@ -7,7 +7,7 @@
     "deploy": "node_modules/.bin/ask deploy"
   },
   "devDependencies": {
-    "alexa-conversation": "uk-ar/alexa-conversation",
+    "alexa-conversation": "^0.2.0",
     "ask-cli": "^1.7.2",
     "mocha": "^5.2.0"
   }
