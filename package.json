@@ -8,7 +8,7 @@
   },
   "devDependencies": {
     "alexa-conversation": "uk-ar/alexa-conversation",
-    "ask-cli": "^1.0.0-beta.9",
-    "mocha": "^5.0.0"
+    "ask-cli": "^1.7.2",
+    "mocha": "^5.2.0"
   }
 }

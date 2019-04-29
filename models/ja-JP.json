@@ -6,6 +6,7 @@
                 {
                     "name": "ERA_NAME",
                     "values": [
+                        {"id": null,"name": {"value": "令和","synonyms": [] } },
                         {"id": null,"name": {"value": "平成","synonyms": [] } },
                         {"id": null,"name": {"value": "昭和","synonyms": [] } },
                         {"id": null,"name": {"value": "明治","synonyms": [] } },

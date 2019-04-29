@@ -1,5 +1,5 @@
 {
-  "skillManifest": {
+  "manifest": {
     "publishingInformation": {
       "locales": {
         "ja-JP": {
@@ -17,7 +17,7 @@
             "相互",
             "変換"
           ],
-          "name": "年号変換",
+          "name": "年号変換(令和に対応)",
           "smallIconUri": "https://api.amazonalexa.com/v0/skills/amzn1.ask.skill.1dbf4219-77ea-4a84-903c-a582dddc0ecc/images/eyJkIjoiZXNxYzYvcGZxTGRaN29vbHFpaFk1cjJQc1JTd090djdHY0RHTzBMdG9rMDN6UVBESUw5VDFqTTg2dklLZUVnYUx1T09McDQ2aGI1LzNvYkFjYzI0UllFVzNYcXY5U0FaMU9Ka0xNblgyOFVIWXlrUGhWcTVlM3VOeFljK2cvNnkiLCJpdiI6ImJaOTYzdFc2Yy83eDllemE5MTdGaVE9PSIsInYiOjF9",
           "description": "■年号の変換\n「年号変換で来年は何年？」\n「年号変換で1981年は？」\n「年号変換で昭和56年」\nと聞くことで年号と西暦を変換します。",
           "largeIconUri": "https://api.amazonalexa.com/v0/skills/amzn1.ask.skill.1dbf4219-77ea-4a84-903c-a582dddc0ecc/images/eyJkIjoiQkdiaE84OWdsTjQ3SFVNK2ZhVEM4MEdDMWRJMzBHMnlsdi94QmtXcmpWa0hjR28yOGxjUkF2Qm1DS29vTDNiWUlJc0VjWTZLVkYyczYvZXlIc25PYlZycWVRbUU5YmxURCt3NWFia1RlOUVYTCtGUGpUUEo4cW5kK0xNS002bEk3M01PNXhwaWFuR2lTV2pBNHFEY1VBPT0iLCJpdiI6Im0zaWpDYWNudVZEbWNPbFRqOWFaY3c9PSIsInYiOjF9"
@@ -33,7 +33,7 @@
     "apis": {
       "custom": {
         "endpoint": {
-            "sourceDir": "lambda/custom"
+          "sourceDir": "lambda/custom"
         }
       }
     },

@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "alexa-sdk": "^1.0.0",
-    "koyomi": "^0.5.1",
+    "koyomi": "yukik/koyomi",
     "moment": "^2.20.1"
   }
 }
