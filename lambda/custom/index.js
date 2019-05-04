@@ -16,7 +16,7 @@ exports.handler = function(event, context) {
     alexa.execute();
 };
 
-const HELP_MESSAGE = "例えば「年号変換で来年は何年？」「年号変換で1981年は？」「年号変換で昭和56年？」のように聞いてください。"
+const HELP_MESSAGE = "例えば「アレクサ、年号変換で来年は何年？」「アレクサ、年号変換で1981年は？」「アレクサ、年号変換で昭和56年？」のように聞いてください。"
 
 var handlers = {
     'LaunchRequest': function () {
